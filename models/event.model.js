@@ -17,9 +17,15 @@ const userSchema = new Schema(
             required: true,
 
         },
-        password: {
+
+        date: {
             type: String,
-            required: true
+            required: true,
+
+        },
+        favEvent: {
+            type: true,
+
         }
     },
     {
