@@ -1,11 +1,90 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: linear-gradient(rgb(147, 148, 147), rgb(171, 205, 202));
+  background-size: auto;
+  background-repeat: no-repeat;
+  overflow: auto;
 }
 
-a {
-  color: #00b7ff;
+/* Carousel */
+.carousel-item img {
+  height: 170px;
+  margin-bottom: 0;
 }
 
-h1 {
-  color: 15px;
+.carousel-caption {
+  color: black;
+
+}
+
+.carousel-control-next {
+  color: black;
+
+}
+
+.carousel-control-next {
+  color: black;
+
+}
+
+
+
+/* main */
+.logo-solo-title {
+  height: 300px;
+  margin: 0;
+}
+
+.maintitle {
+  font-family: Microsoft YaHei Light;
+  font-size: 7em;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.titlebox {
+  padding: 150px 0;
+}
+
+/* NavBar */
+.nav-item {
+  color: black;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.logo-solo {
+  height: 60px;
+}
+
+.navbar {
+  height: 70px;
+}
+
+/* footer */
+footer {
+  background-color: #000000;
+  color: rgb(250, 248, 248);
+  padding: 10px;
+  font-size: 1.5em;
+  position: fixed;
+  text-align: center;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  width: 100%
+}
+
+/* login */
+.login {
+  padding: 250px 0;
+}
+
+/* register */
+.register {
+  padding: 300px 0;
 }
