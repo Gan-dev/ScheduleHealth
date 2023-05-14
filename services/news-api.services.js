@@ -8,7 +8,6 @@ class ApiNews {
         })
     }
     getSearchNews() {
-        console.log(this.baseURL)
         return this.axiosApp.get(`/search?page=2&q=debate&${process.env.API_KEY_NEWS}`)
     }
 
