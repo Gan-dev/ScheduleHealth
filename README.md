@@ -11,4 +11,4 @@ Proyect on JavaScript, Mongoose, Mongo DB and somes api's
 | .POST | "/login" | auth login | [ ] |
 | .GET | "/register" | form register | [ ] |
 | .POST | "/register | create User | [ ] |
-| .GET | "/profile | View profile | [ ] |
+| .GET | "/profile | View profile | [x] |
