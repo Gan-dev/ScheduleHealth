@@ -1,13 +1,12 @@
-const express = require('express');
-const router = express.Router();
+const router = require("express").Router();
+const axios = require("axios");
+const apiNews = require('../services/news-api.services');
 
+router.get("/news", (req, res, next) => {
 
-function getNewsJSON() {
-
-    fetch('/news/my-page')
-        .then(news => res.json(news))
+    apiNews
+        .getAllNews()
+        .then(response => res.render('news/news.main', { news: response.results }))
         .catch(err => next(err))
-};
-
+})
 module.exports = router
-
