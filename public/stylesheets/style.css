@@ -3,7 +3,7 @@ img {
 }
 
 .gradient {
-  background: linear-gradient(rgb(147, 148, 147), rgb(171, 205, 202));
+  /*background: linear-gradient(rgb(147, 148, 147), rgb(171, 205, 202));*/
   background-size: auto;
   background-repeat: no-repeat;
   overflow: auto;
@@ -68,16 +68,21 @@ img {
   height: 70px;
 }
 
+.bg {
+  background-color: white;
+}
+
 /* footer */
 footer {
   background-color: #000000;
   color: rgb(250, 248, 248);
-  padding: 10px;
-  font-size: 1.5em;
-  position: fixed;
+  padding: 5px;
+  font-size: 1.2em;
   text-align: center;
+  /*position: fixed; 
   height: 50px;
   bottom: 0;
   left: 0;
+  */
   width: 100%
 }

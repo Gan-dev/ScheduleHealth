@@ -4,11 +4,11 @@ class ApiNews {
 
     constructor() {
         this.axiosApp = axios.create({
-            baseURL: `https://content.guardianapis.com`
+            baseURL: `https://api.nytimes.com/svc/topstories`
         })
     }
-    getSearchNews() {
-        return this.axiosApp.get(`/search?page=2&q=debate&api-key=${process.env.API_KEY_NEWS}`)
+    getHomeNews() {
+        return this.axiosApp.get(`/v2/home.json?api-key=${process.env.API_KEY_NEWS}`)
     }
 
     getAllNews() {

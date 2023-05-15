@@ -26,6 +26,10 @@ const projectName = "Count on me";
 app.locals.appTitle = `${capitalize(projectName)}`;
 
 // 👇 Start handling routes here
+app.use(function (req, res, next) {
+    res.locals.currentUser = req.user;
+    next();
+});
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 const authRoutes = require("./routes/auth.routes")

@@ -1,11 +1,20 @@
-<div class="bg">
+<div class="container mt-5 ">
 
-    {{#each news}}
-    <h2 class="mb-5">{{pillarName}}</h2>
-    <h3>{{webTitle}}</h3>
-    <a href={{webUrl}} class="btn btn-dark">Mas detalles </a>
-    <hr>
-    {{/each}}
-    <p>hola</p>
+    <div class="bg">
+        <div class="row align-items-center">
+            {{#each news}}
+            <div class="col-md-6 mb-3">
+                <h3>{{title}}</h3>
+                <p>{{abstract}}</p>
+                <p class="text-end" style="color: lightslategray">{{byline}}</p>
+                <a href="#" class="btn btn-dark">Mas detalles </a>
+            </div>
+            <div class="col-md-6">
+                <img src="{{multimedia.[1].url}}" alt={{title}}>
+            </div>
+            <hr class="mt-5">
+            {{/each}}
 
+        </div>
+    </div>
 </div>
