@@ -1,34 +1,63 @@
 <div class="container">
 
     <div class="row justify-content-center">
+        <div class="col-md-6">
+            <img src="" alt="">
+        </div>
+
 
         <div class="col-md-6">
 
-            <h1>Edit my profile</h1>
+            <h1>Edit my Profile</h1>
             <hr>
 
-            <form action="/profile/{{id}}/edit" method="POST">
-                <div class="mb-3">
-                    <label for="usernameInput" class="form-label">Nombre de usuario</label>
-                    <input type="text" class="form-control" id="usernameInput" name="username" value="{{username}}">
-                </div>
+            <form action="/myprofile/edit" method="POST">
+
 
                 <div class="mb-3 row">
-                    <div class="col">
+
+                    <div class="col-md-6">
+                        <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="usernameInput" name="username"
+                            value="{{users.username}}">
+                    </div>
+                    <div class="col-md-6">
                         <label for="emailInput" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailInput" name="email" value="{{email}}">
+                        <input type="email" class="form-control" id="emailInput" name="email" value="{{users.email}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="age" class="form-label">Birth Date</label>
+                        <input type="date" class="form-control" id="age" name="birth" value="{{users.birth}}">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="zip" class="form-label">Zip Code</label>
+                        <input type="number" class="form-control" id="zip" name="zipCode" pattern="\d{5}" required
+                            value="{{users.zipCode}}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="firstname" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="firstname" name="firstName"
+                            value="{{users.firstName}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastname" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="lastname" name="lastName"
+                            value="{{users.lastName}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="avatar" class="form-label">Avatar</label>
+                        <input type="file" class="form-control" id="avatar" name="avatar">
+                    </div>
+
+                    <div class=" d-grid gap-2">
+                        <button type="submit" class="btn btn-danger block">Submit changes</button>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <a href="/profile/{{id}}" class="btn btn-dark block">Cancel</a>
                     </div>
                 </div>
-
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-danger block">Submit changes</button>
-                </div>
-                <div class="d-grid gap-2">
-                    <a href="/profile/{{id}}" class="btn btn-dark block">Cancel</a>
-                </div>
-
             </form>
         </div>
     </div>
-
 </div>

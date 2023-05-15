@@ -81,3 +81,7 @@ footer {
   left: 0;
   width: 100%
 }
+
+.profileImage {
+  height: 70px;
+}
