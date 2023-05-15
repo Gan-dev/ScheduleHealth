@@ -58,7 +58,7 @@ Proyect on JavaScript, Mongoose, Mongo DB and somes api's
 
 
 ## Functions on The web-Site
-- [ ] User registration and administrator profile
+- [x] User registration and administrator profile
 - [ ] Create public and private events in calendar
 - [ ] Type of events, leisure, work health
 - [ ] Record daily mood from a list and put a comment
