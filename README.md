@@ -10,51 +10,51 @@ Proyect on JavaScript, Mongoose, Mongo DB and somes api's
 
 | HTTPS | URI PATH | DESCRIPTION | API |
 |-------|------|-------------|-----|
-| .GET | / | Landing-Page |  |
-| .GET | /login | Log in |  |
-| .POST | /login | auth login |  |
-| .GET | /register | form register |  |
-| .POST | /register | create User | |
-| .GET | /profile | View profile |  |
+| GET | `/` | Landing-Page |  |
+| GET | ` /login` | Log in |  |
+| POST | `/login`| auth login |  |
+| GET | ` /register`| form register |  |
+| POST | `/register `| create User | |
+| GET | ` /profile `| View profile |  |
 
 ### Users
 
 | HTTPS | URI PATH | DESCRIPTION | API |
 |-------|------|-------------|-----|
-| .GET | /edit/{id}/profile | render profile y preferences  |  |
-| .POST | /edit/{id}/profile  | edit profile |  |
-| .GET | /howYouFell | render profile y preferences  |  |
-| .POST | /howYouFell | Input how to fell today |  |
-| .GET | /{id}/myPage | main page with calendar, moods and news  |  |
+| GET | `/edit/{id}/profile` | render profile y preferences  |  |
+| POST | `/edit/{id}/profile`| edit profile |  |
+| GET | `/howYouFell` | render profile y preferences  |  |
+| POST | `/howYouFell` | Input how to fell today |  |
+| GET | `/{id}/myPage` | main page with calendar, moods and news  |  |
 
 ### Events
 
 | HTTPS | URI PATH | DESCRIPTION | API |
 |-------|------|-------------|-----|
-| .GET	| /event-list |	Public event list | |
-| .GET	| /subcribed-event |subscribed events | | 
-| .GET	| /my-events |	Users events | |
-| .GET	| /createvent | form-create event | |
-| .POST |	/createvent	| creat event | |
-| .GET	| /edit/{id}/event | edit event | |
-| .POST |	/edit/{id}/event | edit event | |
-| .POST |	/delete/{id}/event | delete event | |
+| GET	| ` /event-list` |	Public event list | |
+| GET	| ` /subcribed-event` |subscribed events | | 
+| GET	| ` /my-events` |	Users events | |
+| GET	| ` /createvent` | form-create event | |
+| POST | `/createvent`	| creat event | |
+| GET	| `/edit/{id}/event` | edit event | |
+| POST | `/edit/{id}/event` | edit event | |
+| POST | `/delete/{id}/event` | delete event | |
 
 ### MOOD
 | HTTPS | URI PATH | DESCRIPTION | API |
 |-------|------|-------------|-----|
-| .GET | /feeling-form | allows to reporte you feeling | |	
-.GET | /api/api.goprogram.ai/inspiration | view of the calendar | :white_check_mark: |
+| GET | `/feeling-form` | allows to reporte you feeling | |	
+| GET | `/api/api.goprogram.ai/inspiration` | view of the calendar | :white_check_mark: |
 
 ### NEWS
 | HTTPS | URI PATH | DESCRIPTION | API |
 |-------|------|-------------|-----|
-| .GET | /news | view random news | |
-| .GET | /{id}/newsdateils | access to read the selected article	 | |
-| .GET | /api/theguardian | news list | :white_check_mark:  |
-| .GET | /api/{id}/theguardian | news details | :white_check_mark:  |
-| .GET | /api/googlecalendar | view of the calendar | :white_check_mark: |
-| .GET | /api/getevents | view events | :white_check_mark:  |
+| GET | ` /news | view random news | |
+| GET | ` /{id}/newsdateils | access to read the selected article	 | |
+| GET | ` /api/theguardian | news list | :white_check_mark:  |
+| GET | ` /api/{id}/theguardian | news details | :white_check_mark:  |
+| GET | ` /api/googlecalendar | view of the calendar | :white_check_mark: |
+| GET | ` /api/getevents | view events | :white_check_mark:  |
 
 
 ## Functions on The web-Site

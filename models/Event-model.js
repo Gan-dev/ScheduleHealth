@@ -37,6 +37,10 @@ const eventSchema = new Schema(
             type: [Schema.Types.ObjectId],
             ref: "User",
             require: true
+        }],
+        mood: [{
+            type: Schema.Types.ObjectId,
+            ref: "mood"
         }]
     },
 
