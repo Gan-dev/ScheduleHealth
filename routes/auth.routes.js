@@ -10,13 +10,13 @@ const uploderAvatarMiddleware = require('../middlewares/uploderAvatar.middleware
 router.get('/register', (req, res, next) => res.render('auth/signup'))
 router.post('/register', uploderAvatarMiddleware.single("avatarUrl"), (req, res, next) => {
 
-    const { path: avatarUrl } = req.file
-    const { email, password, username, age, zipCode, firstName, lastName, } = req.body
-    noAvatar(avatarUrl)
+    const { path: avatar } = req.file
+    const { email, password, username, birth, zipCode, firstName, lastName, } = req.body
+    utils.noAvatar()
     bcrypt
         .genSalt(saltRound)
         .then(salt => bcrypt.hash(password, salt))
-        .then(hashedPassword => User.create({ email, username, password: hashedPassword, avatarUrl }))
+        .then(hashedPassword => User.create({ email, username, password: hashedPassword, birth, zipCode, firstName, lastName, avatar }))
         .then(() => res.redirect('/'))
         .catch(error => next(error))
 })

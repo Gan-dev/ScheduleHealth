@@ -6,7 +6,6 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       required: false,
-      unique: true
     },
     email: {
       type: String,
@@ -27,39 +26,34 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    age: {
+    birth: {
+      type: Date,
+      required: true
+    },
+    zipCode: {
       type: Number,
       required: true
     },
-    zipCpde: {
-      type: Number,
-      required: true
-    },
-    newsPreference: {
-      type: [String],
+    newsPreferences: [{
+      type: String,
       enum: ["Politics", "World news", "Sport", "Environment", "Opinion", "Television & radio",],
-    },
-    avatarUrl: {
+    }],
+    avatar: {
       type: String,
       default: "https://i.stack.imgur.com/l60Hf.png"
     },
     suscribedEvents: [{
-      type: [Schema.Types.ObjectId],
+      type: Schema.Types.ObjectId,
       ref: "Event",
       require: true
     }],
     favEvent: [{
-      type: [Schema.Types.ObjectId],
-      ref: "Event",
-      require: true
-    }],
-    myEvent: [{
-      type: [Schema.Types.ObjectId],
+      type: Schema.Types.ObjectId,
       ref: "Event",
       require: true
     }],
     role: {
-      type: [String],
+      type: String,
       enum: ["User", "Admin"],
       default: "User"
     },
