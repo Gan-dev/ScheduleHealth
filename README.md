@@ -49,12 +49,12 @@ Proyect on JavaScript, Mongoose, Mongo DB and somes api's
 ### NEWS
 | HTTPS | URI PATH | DESCRIPTION | API |
 |-------|------|-------------|-----|
-| GET | ` /news | view random news | |
-| GET | ` /{id}/newsdateils | access to read the selected article	 | |
-| GET | ` /api/theguardian | news list | :white_check_mark:  |
-| GET | ` /api/{id}/theguardian | news details | :white_check_mark:  |
-| GET | ` /api/googlecalendar | view of the calendar | :white_check_mark: |
-| GET | ` /api/getevents | view events | :white_check_mark:  |
+| GET | ` /news`| view random news | |
+| GET | ` /{id}/newsdateils` | access to read the selected article	 | |
+| GET | ` /api/theguardian` | news list | :white_check_mark:  |
+| GET | ` /api/{id}/theguardian` | news details | :white_check_mark:  |
+| GET | ` /api/googlecalendar` | view of the calendar | :white_check_mark: |
+| GET | ` /api/getevents` | view events | :white_check_mark:  |
 
 
 ## Functions on The web-Site
