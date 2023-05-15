@@ -31,22 +31,17 @@ const userSchema = new Schema(
       type: Number,
       required: true
     },
-    city: {
-      type: String,
+    zipCpde: {
+      type: Number,
       required: true
     },
     newsPreference: {
       type: [String],
-      enum: [Science,
-        Sports, Politics],
-    },
-    feelings: {
-      type: [String],
-      enum: [SuperSad, Sad, Neutral, Happy, SuperHappy],
+      enum: ["Politics", "World news", "Sport", "Environment", "Opinion", "Television & radio",],
     },
     avatarUrl: {
       type: String,
-      default: " "
+      default: "https://i.stack.imgur.com/l60Hf.png"
     },
     suscribedEvents: [{
       type: [Schema.Types.ObjectId],
@@ -63,6 +58,11 @@ const userSchema = new Schema(
       ref: "Event",
       require: true
     }],
+    role: {
+      type: [String],
+      enum: ["User", "Admin"],
+      default: "User"
+    },
 
   },
   {

@@ -2,16 +2,17 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
 const saltRound = 10
-const User = require('../models/User.model');
+const User = require('../models/User-model');
 const errorHandling = require('../error-handling');
+const utils = require('../utils/user-utils')
 const uploderAvatarMiddleware = require('../middlewares/uploderAvatar.middleware');
 
 router.get('/register', (req, res, next) => res.render('auth/signup'))
 router.post('/register', uploderAvatarMiddleware.single("avatarUrl"), (req, res, next) => {
 
     const { path: avatarUrl } = req.file
-    const { email, password, username } = req.body
-
+    const { email, password, username, age, zipCode, firstName, lastName, } = req.body
+    noAvatar(avatarUrl)
     bcrypt
         .genSalt(saltRound)
         .then(salt => bcrypt.hash(password, salt))
