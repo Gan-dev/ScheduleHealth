@@ -8,7 +8,7 @@ class ApiNews {
         })
     }
     getSearchNews() {
-        return this.axiosApp.get(`/search?page=2&q=debate&${process.env.API_KEY_NEWS}`)
+        return this.axiosApp.get(`/search?page=2&q=debate&api-key=${process.env.API_KEY_NEWS}`)
     }
 
     getAllNews() {
