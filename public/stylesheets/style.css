@@ -1,9 +1,14 @@
+img {
+  width: 100%;
+}
+
 .gradient {
   background: linear-gradient(rgb(147, 148, 147), rgb(171, 205, 202));
   background-size: auto;
   background-repeat: no-repeat;
   overflow: auto;
   height: 100vh;
+  margin-bottom: 40px;
 }
 
 /* Carousel */
@@ -28,7 +33,7 @@
 
 /* main */
 .logo-solo-title {
-  height: 300px;
+  width: 300px;
   margin: 0;
 }
 
@@ -56,7 +61,7 @@
 }
 
 .logo-solo {
-  height: 60px;
+  width: 40px;
 }
 
 .navbar {

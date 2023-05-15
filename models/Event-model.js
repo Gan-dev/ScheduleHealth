@@ -9,13 +9,13 @@ const eventSchema = new Schema(
         },
         type: {
             type: [String],
-            enum: [Ocio, Trabajo, Salud],
+            enum: ["Ocio", "Trabajo", "Salud"],
             required: true,
 
         },
         specs: {
             type: [String],
-            enum: [Publico, Privado],
+            enum: ["Publico", "Privado"],
             required: true,
 
         },
