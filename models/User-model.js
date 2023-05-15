@@ -36,7 +36,7 @@ const userSchema = new Schema(
     },
     newsPreferences: [{
       type: String,
-      enum: ["Politics", "World news", "Sport", "Environment", "Opinion", "Television & radio",],
+      enum: ["arts", "technology", "sports", "world", "science", "opinion", "movies"],
     }],
     avatar: {
       type: String,

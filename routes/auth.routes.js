@@ -8,7 +8,7 @@ const utils = require('../utils/user-utils')
 const uploderAvatarMiddleware = require('../middlewares/uploderAvatar.middleware');
 
 router.get('/register', (req, res, next) => res.render('auth/signup'))
-router.post('/register', uploderAvatarMiddleware.single("avatarUrl"), (req, res, next) => {
+router.post('/register', uploderAvatarMiddleware.single("avatar"), (req, res, next) => {
 
     const { path: avatar } = req.file
     const { email, password, username, birth, zipCode, firstName, lastName, } = req.body
@@ -45,7 +45,7 @@ router.post('/login', (req, res, next) => {
                 return
             }
             req.session.currentUser = user
-            res.redirect('/')
+            res.redirect('/myprofile')
         })
         .catch(error => next(error))
 })
