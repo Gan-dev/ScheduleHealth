@@ -27,7 +27,7 @@ app.locals.appTitle = `${capitalize(projectName)}`;
 
 // 👇 Start handling routes here
 app.use(function (req, res, next) {
-    res.locals.currentUser = req.user;
+    res.locals.currentUser = req.session.currentUser;
     next();
 });
 const indexRoutes = require("./routes/index.routes");

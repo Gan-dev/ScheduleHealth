@@ -1,6 +1,8 @@
 const router = require("express").Router();
-const { isLoggedIn, checkSame, checkRoles } = require('../middlewares/route.guards')
+
 const User = require("../models/User-model");
+
+const { isLoggedIn, checkSame, checkRoles } = require('../middlewares/route.guards')
 const { renderizeButtom } = require("../utils/user-utils");
 
 router.get('/myprofile', isLoggedIn, (req, res, next) => {

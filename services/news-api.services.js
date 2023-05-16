@@ -10,12 +10,8 @@ class ApiNews {
     getHomeNews() {
         return this.axiosApp.get(`/v2/home.json?api-key=${process.env.API_KEY_NEWS}`)
     }
-
-    getAllNews() {
-        return this.axiosApp.get('/tags')
-    }
-    getSectionsNews() {
-        return this.axiosApp.get('/sections')
+    getNewBySection(section) {
+        return this.axiosApp.get(`/v2/search?${process.env.API_KEY_NEWS}`)
     }
 }
 

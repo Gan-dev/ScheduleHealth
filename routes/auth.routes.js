@@ -12,7 +12,7 @@ router.post('/register', uploderAvatarMiddleware.single("avatar"), (req, res, ne
 
     const { path: avatar } = req.file
     const { email, password, username, birth, zipCode, firstName, lastName, } = req.body
-    utils.noAvatar()
+    utils.noAvatar(avatar)
     bcrypt
         .genSalt(saltRound)
         .then(salt => bcrypt.hash(password, salt))
