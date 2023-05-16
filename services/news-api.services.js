@@ -15,7 +15,6 @@ class ApiNews {
     }
 }
 
-
 const apiNews = new ApiNews()
 
 module.exports = apiNews

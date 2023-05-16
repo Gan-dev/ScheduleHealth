@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Edit my Event</h1>
+            <hr>
+
+            <form action="/myevents/edit/{{event._id}}" method="POST">
+                <div class="mb-3 row">
+
+                    <div class="col-md-6">
+                        <label for="eventName" class="form-label">Event Name</label>
+                        <input type="text" class="form-control" id="eventName" name="name" value="{{event.name}}">
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="eventType" class="form-label">Event Type</label>
+                        <select class="form-select" selected name="type">
+                            <option value="Leisure">Leisure</option>
+                            <option value="Work">Work</option>
+                            <option value="Health">Health</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="eventSpecs" class="form-label">Event Specs</label>
+                        <select class="form-select" selected name="specs">
+                            <option value="Public">Public</option>
+                            <option value="Private">Private</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="eventDescription" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="eventDescription" name="description"
+                            value="{{event.description}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date" class="form-label"> Date</label>
+                        <input type="date" class="form-control" id="date" name="date" value="{{event.date}}">
+                    </div>
+                    <div class=" d-grid gap-2">
+                        <button type="submit" class="btn btn-danger block">Submit changes</button>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <a href="/myevents/{{id}}" class="btn btn-dark block">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
