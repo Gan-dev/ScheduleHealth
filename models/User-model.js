@@ -47,11 +47,6 @@ const userSchema = new Schema(
       ref: "Event",
       require: true
     }],
-    favEvent: [{
-      type: Schema.Types.ObjectId,
-      ref: "Event",
-      require: true
-    }],
     role: {
       type: String,
       enum: ["User", "Admin"],

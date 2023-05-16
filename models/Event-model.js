@@ -9,12 +9,12 @@ const eventSchema = new Schema(
         },
         type: {
             type: String,
-            enum: ["Ocio", "Trabajo", "Salud"],
+            enum: ["Leisure", "Work", "Health"],
             required: true,
         },
         specs: {
             type: String,
-            enum: ["Publico", "Privado"],
+            enum: ["Public", "Private"],
             required: true,
         },
         description: {
@@ -27,20 +27,15 @@ const eventSchema = new Schema(
             required: true,
         },
 
-        openToSuscribe: {
-            type: Boolean
-        },
         owner: {
             type: Schema.Types.ObjectId,
             ref: "User",
-            require: true
         }
     },
 
     {
         timestamps: true
     }
-
 );
 
 const Event = model("Event", eventSchema);
