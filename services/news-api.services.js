@@ -4,17 +4,17 @@ class ApiNews {
 
     constructor() {
         this.axiosApp = axios.create({
-            baseURL: `https://api.nytimes.com/svc/topstories`
+            baseURL: `https://api.nytimes.com/svc`
         })
     }
     getHomeNews() {
-        return this.axiosApp.get(`/v2/home.json?api-key=${process.env.API_KEY_NEWS}`)
+        return this.axiosApp.get(`/topstories/v2/home.json?api-key=${process.env.API_KEY_NEWS}`)
     }
-    getNewBySection(section) {
-        return this.axiosApp.get(`/v2/search?${process.env.API_KEY_NEWS}`)
+    getNewsByTopic(topic) {
+        console.log(topic)
+        return this.axiosApp.get(`/topstories/v2/${topic}.json?api-key=${process.env.API_KEY_NEWS}`)
     }
 }
-
 
 const apiNews = new ApiNews()
 

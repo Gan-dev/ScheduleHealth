@@ -1,6 +1,16 @@
 <div class="container mt-5 ">
-
     <h1>Hola {{currentUser.username}}</h1>
+    <p>Aqui estan tus preferencias de noticias :D</p>
+    <ul class="nav justify-content-center mb-5">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/news">Globals</a>
+        </li>
+        {{#each currentUser.newsPreferences}}
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/news/{{this}}">{{this}}</a>
+        </li>
+        {{/each}}
+    </ul>
     <div class="bg">
         <div class="row align-items-center">
             {{#each news}}
@@ -13,7 +23,7 @@
             <div class="col-md-6">
                 <img src="{{multimedia.[1].url}}" alt={{title}}>
             </div>
-            <hr class="mt-5">
+            <hr class="mt-5 mb-5" style="width: 75%; margin: 0 auto;">
             {{/each}}
 
         </div>

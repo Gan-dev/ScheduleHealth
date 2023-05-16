@@ -6,17 +6,22 @@ const User = require('../models/User-model');
 const errorHandling = require('../error-handling');
 const utils = require('../utils/user-utils')
 const uploderAvatarMiddleware = require('../middlewares/uploderAvatar.middleware');
+const { Schema } = require('mongoose');
 
-router.get('/register', (req, res, next) => res.render('auth/signup'))
+router.get('/register', (req, res, next) => {
+    const newsPreferences = User.schema.obj.newsPreferences
+    res.render('auth/signup', { newsPreferences })
+})
 router.post('/register', uploderAvatarMiddleware.single("avatar"), (req, res, next) => {
 
     const { path: avatar } = req.file
-    const { email, password, username, birth, zipCode, firstName, lastName, } = req.body
+    const { email, password, username, birth, zipCode, firstName, lastName, newsPreferences } = req.body
+
     utils.noAvatar(avatar)
     bcrypt
         .genSalt(saltRound)
         .then(salt => bcrypt.hash(password, salt))
-        .then(hashedPassword => User.create({ email, username, password: hashedPassword, birth, zipCode, firstName, lastName, avatar }))
+        .then(hashedPassword => User.create({ email, username, password: hashedPassword, birth, zipCode, firstName, lastName, avatar, newsPreferences }))
         .then(() => res.redirect('/'))
         .catch(error => next(error))
 })
