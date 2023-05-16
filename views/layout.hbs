@@ -39,12 +39,13 @@
                      <button class="nav-link">Logout</button>
                   </form>
                </li>
+            </ul>
          </div>
       </div>
-      <div class="container-fluid">
-         <a class="navbar-brand" href="#">
-            <img src={{currentUser.avatar}} alt="" width="10%" height="50px" class="d-inline-block align-text-top">
+      <div class="container-fluid" style="text-align: right;">
+         <a class="d-inline-block">
             {{currentUser.username}}
+            <img src={{currentUser.avatar}} alt="" class="d-inline-block align-text-top" style="width: 10%;">
          </a>
       </div>
    </nav>
