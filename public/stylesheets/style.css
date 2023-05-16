@@ -3,8 +3,8 @@ img {
 }
 
 .gradient {
-  /*background: linear-gradient(rgb(147, 148, 147), rgb(171, 205, 202));*/
-  background-size: auto;
+  background: linear-gradient(rgb(147, 148, 147), rgb(171, 205, 202));
+  */ background-size: auto;
   background-repeat: no-repeat;
   overflow: auto;
   height: 100vh;
@@ -33,24 +33,27 @@ img {
 
 /* main */
 .logo-solo-title {
-  width: 300px;
+  width: 250px;
+
   margin: 0;
 }
 
 .maintitle {
   font-family: Microsoft YaHei Light;
-  font-size: 7em;
+  font-size: 5em;
+  text-align: center;
   font-weight: 600;
 }
 
 .subtitle {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2em;
+  text-align: center;
   font-weight: 600;
 }
 
 .titlebox {
-  padding: 150px 0;
+  padding: 50px 0;
 }
 
 /* NavBar */
