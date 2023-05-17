@@ -35,8 +35,22 @@
                             value="{{event.description}}">
                     </div>
                     <div class="col-md-6">
-                        <label for="date" class="form-label"> Date</label>
-                        <input type="date" class="form-control" id="date" name="date" value="{{event.date}}">
+                        <label for="date" class="form-label"> Start Date</label>
+                        <input type="date" class="form-control" id="date" name="dateStart" value="{{event.date.start}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date" class="form-label"> End Date</label>
+                        <input type="date" class="form-control" id="date" name="dateEnd" value="{{event.date.end}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date" class="form-label"> Start Hour</label>
+                        <input type="time" class="form-control" id="date" name="startingHour"
+                            value="{{event.date.hourStart}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date" class="form-label"> End Hour</label>
+                        <input type="time" class="form-control" id="date" name="endingHour"
+                            value="{{event.date.hourEnd}}">
                     </div>
                     <div class=" d-grid gap-2">
                         <button type="submit" class="btn btn-danger block">Submit changes</button>

@@ -42,11 +42,11 @@ const userSchema = new Schema(
       type: String,
       default: "https://i.stack.imgur.com/l60Hf.png"
     },
-    // subscribedEvents: [{
-    //   type: Schema.Types.ObjectId,
-    //   ref: "Event",
-    //   require: true
-    // }],
+    subscribedEvents: [{
+      type: Schema.Types.ObjectId,
+      ref: "Event",
+      require: true
+    }],
     role: {
       type: String,
       enum: ["User", "Admin"],

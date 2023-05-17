@@ -23,8 +23,18 @@ const eventSchema = new Schema(
         },
 
         date: {
-            type: Date,
-            required: true,
+            start: {
+                type: String
+            },
+            end: {
+                type: String
+            },
+            hourStart: {
+                type: String
+            },
+            hourEnd: {
+                type: String
+            }
         },
 
         owner: {

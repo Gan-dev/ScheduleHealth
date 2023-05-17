@@ -27,7 +27,14 @@ router.get('/myevents/create', (req, res, next) => {
 });
 
 router.post('/myevents/create', (req, res, next) => {
-    const { name, type, specs, description, date } = req.body
+    const { name, type, specs, description, dateStart, dateEnd, startingHour, endingHour } = req.body
+    console.log(typeof dateStart)
+    const date = {
+        start: dateStart,
+        end: dateEnd,
+        hourStart: startingHour,
+        hourEnd: endingHour
+    }
     const { _id } = req.session.currentUser
 
     Event
