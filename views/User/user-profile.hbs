@@ -8,12 +8,11 @@
         <div class="col-md-2">
             <nav class="nav flex-column">
                 <a class="nav-link active" aria-current="page" href="/news">News</a>
-                <a class="nav-link" href="/myevents">Check my events</a>
+                <a class="nav-link" href="/myevents">My events</a>
+                <a class="nav-link" href="/subscribedevents">Suscribed Events</a>
                 {{#if userRole.isUser}}
                 <a class="nav-link" href="/myprofile/edit">Editar mi perfil</a>
                 {{/if}}
-
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </nav>
         </div>
         <div class="col-md-10">

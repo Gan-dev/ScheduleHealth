@@ -30,7 +30,11 @@ const eventSchema = new Schema(
         owner: {
             type: Schema.Types.ObjectId,
             ref: "User",
-        }
+        },
+        userSubscribed: [{
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        }]
     },
 
     {

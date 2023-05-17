@@ -1,0 +1,29 @@
+<div class="container">
+
+    <h2>My subscribed Events</h2>
+    <hr>
+    <div class="row">
+        {{#each susbribeds}}
+        <div class=" card col-3">
+
+
+            <div class="card-body" style="color: black;">
+                <h4 class="card-title"><strong>{{name}}</strong> </h4>
+                <h6 class="card-title"><strong>{{date}}</strong> </h6>
+                <a href="/subscribedevents/details/{{_id}}" class="btn btn-md btn-success">View details</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{#if userRole.isUser}}
+    <form action="/subscribedevents/{{event._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Unsubscribe" class="btn btn-lg btn-dark">
+    </form>
+
+    {{/if}}
+    <div>
+        <a href="/myprofile" class="btn btn-lg btn-secondary">Return</a>
+        <hr>
+    </div>
+
+</div>

@@ -1,9 +1,8 @@
 const router = require("express").Router();
-
+const { isLoggedIn } = require('../middlewares/route.guards')
 const Event = require("../models/Event-model");
+const User = require("../models/User-model")
 
-
-const { isLoggedIn, checkRoles } = require('../middlewares/route.guards')
 const { renderizeButtom } = require("../utils/user-utils");
 
 router.get('/myevents', isLoggedIn, (req, res, next) => {
