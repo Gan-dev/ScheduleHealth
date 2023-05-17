@@ -11,7 +11,6 @@ class ApiNews {
         return this.axiosApp.get(`/topstories/v2/home.json?api-key=${process.env.API_KEY_NEWS}`)
     }
     getNewsByTopic(topic) {
-        console.log(topic)
         return this.axiosApp.get(`/topstories/v2/${topic}.json?api-key=${process.env.API_KEY_NEWS}`)
     }
 }
