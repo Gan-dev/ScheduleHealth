@@ -1,7 +1,7 @@
 <div class="container mt-5 ">
     <h1>Hola {{currentUser.username}}</h1>
     <p>Aqui estan tus preferencias de noticias :D</p>
-    <ul class="nav justify-content-center mb-5">
+    <ul class="nav justify-content-center mb-2 mt-4">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/news">Globals</a>
         </li>
@@ -11,6 +11,7 @@
         </li>
         {{/each}}
     </ul>
+    <hr style="width: 40%; margin: 20px auto 50px auto;">
     <div class="bg">
         <div class="row align-items-center">
             {{#each news}}
