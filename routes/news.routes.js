@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const axios = require("axios");
 const apiNews = require('../services/news-api.services');
+const { isLoggedIn } = require("../middlewares/route.guards");
 
-router.get("/news", (req, res, next) => {
+router.get("/news", isLoggedIn, (req, res, next) => {
 
     apiNews
         .getHomeNews()
@@ -13,7 +14,7 @@ router.get("/news", (req, res, next) => {
         })
         .catch(err => next(err))
 })
-router.get("/news/:topic", (req, res, next) => {
+router.get("/news/:topic", isLoggedIn, (req, res, next) => {
     const { topic } = req.params
 
 

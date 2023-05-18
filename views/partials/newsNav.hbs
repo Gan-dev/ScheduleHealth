@@ -7,7 +7,7 @@
 
         <a class="nav-link" href="/myprofile">Return</a>
 
-        {{#if currentUser}}
+        {{#if isLoggIn}}
         <form action="/logout" method="POST">
             <input type="submit" class="nav-link" value="Logout"
                 style="background-color: white; border: none; color: rgb(221, 74, 74)">

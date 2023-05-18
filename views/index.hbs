@@ -18,12 +18,12 @@
         </div>
     </div>
 </div>
-{{#if currentUser}}
+{{#unless isLoggIn}}
 <div class="logButton">
     <a href="/login" style="padding: 10px 60px"
         class="btn btn-lg btn-secondary btn-lg position-sticky top-100 start-50 translate-middle"> Log In</a>
 </div>
-{{/if}}
+{{/unless}}
 
 
 <div id="carouselExampleCaptions" class="carousel slide">

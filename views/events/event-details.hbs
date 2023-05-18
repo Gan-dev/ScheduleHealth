@@ -12,13 +12,14 @@
             <div class="row">
                 <p>{{name}}</p>
 
-                <div class=" card col-8" style="color: black;">
+                <div class=" card col-md-8" style="color: black;">
                     <h4 class="card-title"><strong>{{ event.name }}</strong></h4>
 
-                    <h5 class="card-title"><strong>Date: </strong>{{ event.date }}</h5>
+                    <h5 class="card-title"><strong>Date: </strong>{{ event.date.start }}</h5>
                     <hr>
                     <h5 class="card-title"><strong>Description: </strong>{{ event.description }}</h5>
                     <hr>
+                    <a href="/events/edit/{{event._id}}">Editar</a>
                 </div>
             </div>
         </div>
