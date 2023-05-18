@@ -1,0 +1,34 @@
+<div class="container">
+
+    <h2>Events from all the comunity around the world</h2>
+    <hr>
+    <div class="row">
+        {{#each events}}
+        <div class=" card col-3">
+            <div class="card-body" style="color: black;">
+                <h4 class="card-title"><strong>{{name}}</strong> </h4>
+                <h6 class="card-title"><strong>{{date}}</strong> </h6>
+                <a href="/events/details/{{_id}}" class="btn btn-md btn-success">View details</a>
+                <form action="/events/subscribe/{{_id}}" method="POST" style="display: inline">
+                    <input type="submit" value="Suscribe" class="btn btn-lg btn-dark">
+                </form>
+                <form action="/events/unsubscribed/{{_id}}" method="POST" style="display: inline">
+                    <input type="submit" value="Unsubscribe" class="btn btn-lg btn-dark">
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    {{!-- {{#if userRole.isUser}} --}}
+
+
+    {{!-- {{/if}} --}}
+
+    <div>
+        <a href="/myprofile" class="btn btn-lg btn-secondary">Return</a>
+        <hr>
+    </div>
+
+
+</div>
