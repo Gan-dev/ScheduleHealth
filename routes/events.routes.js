@@ -5,7 +5,77 @@ const User = require("../models/User-model")
 
 const { renderizeButtom } = require("../utils/user-utils");
 
-router.get('/myevents', isLoggedIn, (req, res, next) => {
+
+router.get("/create", (req, res, next) => {
+    res.render('events/event-create')
+})
+
+router.post("/create", (req, res, next) => {
+    const { name, type, description, dateStart, dateEnd, startingHour, endingHour } = req.body
+    const { _id: owner } = req.session.currentUser
+    res.send(owner)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* router.get('/myevents', isLoggedIn, (req, res, next) => {
     const { _id } = req.session.currentUser
     const userRole = renderizeButtom(req.session.currentUser, _id)
     Event
@@ -14,7 +84,6 @@ router.get('/myevents', isLoggedIn, (req, res, next) => {
             res.render('events/my-events', { events, userRole })
         });
 })
-
 
 router.get('/myevents/create', (req, res, next) => {
 
@@ -28,7 +97,6 @@ router.get('/myevents/create', (req, res, next) => {
 
 router.post('/myevents/create', (req, res, next) => {
     const { name, type, specs, description, dateStart, dateEnd, startingHour, endingHour } = req.body
-    console.log(typeof dateStart)
     const date = {
         start: dateStart,
         end: dateEnd,
@@ -84,6 +152,6 @@ router.post('/myevents/delete/:_id', isLoggedIn, (req, res, next) => {
         .findByIdAndDelete(_id)
         .then(() => res.redirect(`/myevents`))
         .catch(err => console.log(err))
-})
+}) */
 
 module.exports = router

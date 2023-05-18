@@ -6,6 +6,10 @@ img {
   height: 80vh;
 }
 
+.nav-link {
+  color: #000000;
+}
+
 /* Carousel */
 .carousel-item img {
   height: 170px;

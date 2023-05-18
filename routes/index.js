@@ -15,7 +15,7 @@ module.exports = app => {
     const userRoutes = require("./user.routes")
     app.use("/", userRoutes)
     const eventsRoutes = require("./events.routes")
-    app.use("/", eventsRoutes)
+    app.use("/events", eventsRoutes)
     const suscribeRoutes = require("./subscribe.routes")
     app.use("/", suscribeRoutes)
     const publicRoutes = require("./public.routes")
