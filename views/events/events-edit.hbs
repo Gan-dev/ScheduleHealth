@@ -1,20 +1,27 @@
 <div class="container">
+    <h2>Edit my Event</h2>
+    <hr>
 
-    <div class="row justify-content-center">
+    <form action="/events/myevents/edit/{{event._id}}" method="POST">
+        <div class="row">
+            <div class="col-md-2">
 
-        <div class="col-md-6">
+                <div class="navBars">
+                    <nav class="nav flex-column">
+                        <button style="background: none; border: none;" type="submit">Submit changes</button>
+                        <a class="nav-link" href="/events/myevents/details/{{event._id}}">Cancel</a>
+                    </nav>
+                </div>
+            </div>
 
-            <h1>Edit my Event</h1>
-            <hr>
 
-            <form action="/myevents/edit/{{event._id}}" method="POST">
-                <div class="mb-3 row">
-
-                    <div class="col-md-6">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6 ">
                         <label for="eventName" class="form-label">Event Name</label>
                         <input type="text" class="form-control" id="eventName" name="name" value="{{event.name}}">
                     </div>
-                    <div class="mb-3 ">
+                    <div class="col-md-6 ">
                         <label for="eventType" class="form-label">Event Type</label>
                         <select class="form-select" selected name="type">
                             <option value="Leisure">Leisure</option>
@@ -22,7 +29,7 @@
                             <option value="Health">Health</option>
                         </select>
                     </div>
-                    <div class="mb-3 ">
+                    <div class="col-md-6 ">
                         <label for="eventSpecs" class="form-label">Event Specs</label>
                         <select class="form-select" selected name="specs">
                             <option value="Public">Public</option>
@@ -52,15 +59,12 @@
                         <input type="time" class="form-control" id="date" name="endingHour"
                             value="{{event.date.hourEnd}}">
                     </div>
-                    <div class=" d-grid gap-2">
-                        <button type="submit" class="btn btn-danger block">Submit changes</button>
-                    </div>
-                    <div class="d-grid gap-2">
-                        <a href="/myevents/{{id}}" class="btn btn-dark block">Cancel</a>
-                    </div>
+
                 </div>
-            </form>
+            </div>
         </div>
 
-    </div>
+
+    </form>
+
 </div>

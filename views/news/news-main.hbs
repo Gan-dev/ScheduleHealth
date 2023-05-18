@@ -4,23 +4,13 @@
 
 
     <div class="mt-5">
+        {{!-- //// añadir a gustavo --}}
         <div class="row mt-4">
             <div class="col-md-2">
                 <h4>Noticias</h4>
-                {{>userNav}}
+                {{>newsNav}}
             </div>
             <div class="col-md-10">
-                <ul class="nav justify-content-start mb-2">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/news">Globals</a>
-                    </li>
-                    {{#each currentUser.newsPreferences}}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/news/{{this}}">{{this}}</a>
-                    </li>
-                    {{/each}}
-                </ul>
-                <hr style="width: 40%; color: blue; height: 1.5px;" class="mb-4">
                 <div class="row align-items-center">
                     {{#each news}}
                     <div class="col-md-6 mb-3">

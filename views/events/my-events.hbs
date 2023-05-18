@@ -3,27 +3,24 @@
     <h2>My Events</h2>
     <hr>
     <div class="row">
-        {{#each events}}
-        <div class=" card col-3">
+        <div class="col-md-2">
+            {{>myeventNav}}
+        </div>
 
 
-            <div class="card-body" style="color: black;">
-                <h4 class="card-title"><strong>{{name}}</strong> </h4>
-                <h6 class="card-title"><strong>{{date}}</strong> </h6>
-                <a href="/myevents/details/{{_id}}" class="btn btn-md btn-success">View details</a>
+        <div class="col-md-10">
+            <div class="row">
+                {{#each events}}
+                <div class=" card col-3">
+                    <div class="card-body" style="color: black;">
+                        <h4 class="card-title"><strong>{{name}}</strong> </h4>
+                        <h6 class="card-title"><strong>{{date}}</strong> </h6>
+                        <a href="/events/myevents/details/{{_id}}" class="btn btn-sm btn-secondary">View details</a>
+                    </div>
+                </div>
+                {{/each}}
             </div>
         </div>
-        {{/each}}
     </div>
-
-    <div>
-        <a href="/myprofile" class="btn btn-lg btn-secondary">Return</a>
-        <hr>
-    </div>
-
-
-    {{#if userRole.isUser}}
-    <a href="/myevents/create" class="btn btn-lg btn-dark">Crear Evento</a>
-    {{/if}}
 
 </div>

@@ -5,6 +5,11 @@ const User = require("../models/User-model")
 
 const { renderizeButtom } = require("../utils/user-utils");
 
+//// añadir a gustavo
+router.get('/menu', (req, res, next) => {
+    res.render('events/events-menu')
+});
+
 
 router.get("/create", (req, res, next) => {
     res.render('events/event-create')
@@ -75,7 +80,9 @@ router.post("/create", (req, res, next) => {
 
 
 
-/* router.get('/myevents', isLoggedIn, (req, res, next) => {
+
+
+router.get('/myevents', isLoggedIn, (req, res, next) => {
     const { _id } = req.session.currentUser
     const userRole = renderizeButtom(req.session.currentUser, _id)
     Event
@@ -125,13 +132,12 @@ router.post("/myevents/edit/:_id", isLoggedIn, (req, res, next) => {
     const { _id } = req.params
     const { name, type, specs, description, date } = req.body
 
-
+    /*añadir a gustavo*/
     Event
         .findByIdAndUpdate(_id, { name, type, specs, description, date })
-        .then(() => res.redirect(`/myevents/details/${_id}`))
+        .then(() => res.redirect(`/events/myevents/details/${_id}`))
         .catch(err => console.log(err))
 })
-
 router.get('/myevents/details/:_id', (req, res, next) => {
 
     const { _id } = req.params
@@ -147,11 +153,12 @@ router.get('/myevents/details/:_id', (req, res, next) => {
 router.post('/myevents/delete/:_id', isLoggedIn, (req, res, next) => {
 
     const { _id } = req.params
+    /*añadir a gustavo*/
 
     Event
         .findByIdAndDelete(_id)
-        .then(() => res.redirect(`/myevents`))
+        .then(() => res.redirect(`/events/myevents`))
         .catch(err => console.log(err))
-}) */
+})
 
 module.exports = router

@@ -1,0 +1,11 @@
+<div class="navBars">
+    <nav class="nav flex-column" style="justify-content: flex-start;">
+        <a class="nav-link" href="/events/myevents/edit/{{event._id}}">Edit Event</a>
+
+        <form action="/events/myevents/delete/{{event._id}}" method="POST" class="nav-link">
+            <input type="submit" value="Delete" style="background: none; border: none;"
+                onclick="return confirm('Are you sure you want to delete this Event?')">
+        </form>
+        <a class="nav-link" href="/events/myevents">Return</a>
+    </nav>
+</div>
