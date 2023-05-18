@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const User = require("../models/User-model");
 
 const { isLoggedIn, checkRoles } = require('../middlewares/route.guards')
@@ -8,7 +7,6 @@ const { renderizeButtom } = require("../utils/user-utils");
 router.get('/myprofile', isLoggedIn, (req, res, next) => {
     const { _id } = req.session.currentUser
     const userRole = renderizeButtom(req.session.currentUser, _id)
-    console.log(userRole)
     res.render('user/user-profile', { userRole, users: req.session.currentUser })
 
 });
