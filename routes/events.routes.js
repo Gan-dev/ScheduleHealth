@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { isLoggedIn } = require('../middlewares/route.guards')
 const Event = require("../models/Event-model");
 const User = require("../models/User-model")
+const uploderImageMiddleware = require('../middlewares/uploderImage.middleware');
 
 router.get('/menu', (req, res, next) => {
     res.render('events/events-menu')
@@ -11,7 +12,7 @@ router.get("/create", (req, res, next) => {
     res.render('events/event-create')
 })
 
-router.post("/create", (req, res, next) => {
+router.post("/create", uploderImageMiddleware.single("image"), (req, res, next) => {
 
     const { name, type, specs, description, dateStart, dateEnd, startingHour, endingHour } = req.body
     const { _id: owner } = req.session.currentUser
