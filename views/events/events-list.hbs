@@ -1,33 +1,39 @@
 <div class="container">
 
-    <h2>Events from all the comunity around the world</h2>
+    <h1> All the Events</h1>
     <hr>
     <div class="row">
-        {{#each events}}
-        <div class=" card col-3">
-            <div class="card-body" style="color: black;">
-                <h4 class="card-title"><strong>{{name}}</strong> </h4>
-                <h6 class="card-title"><strong>{{date}}</strong> </h6>
-                <a href="/events/details/{{_id}}" class="btn btn-md btn-success">View details</a>
-                <form action="/events/subscribe/{{_id}}" method="POST" style="display: inline">
-                    <input type="submit" value="Suscribe" class="btn btn-lg btn-dark">
-                </form>
-                <form action="/events/unsubscribed/{{_id}}" method="POST" style="display: inline">
-                    <input type="submit" value="Unsubscribe" class="btn btn-lg btn-dark">
-                </form>
+        <div class="col-md-2">
+            {{>indexNavEvent}}
+        </div>
+        <div class="col-md-10">
+            <div class="row gap-3">
+                {{#each events}}
+                <div class=" card col-5">
+                    <div class="card-body" style="color: black;">
+                        <img src="{{image}}" alt="image">
+                        <h4 class="card-title"><strong>{{name}}</strong> </h4>
+                        <p class="card-text">{{description}}</p>
+                        <h6 class="card-title">Empieza el <strong>{{date.start}}</strong> a las {{date.hourStart}} </h6>
+                        <h6 class="card-title">Termina el <strong>{{date.end}}</strong> a las {{date.hourEnd}} </h6>
+
+                        <a href="/events/details/{{_id}}" class="btn btn-sm btn-secondary">Event Details</Details>
+                        </a>
+                        <div>
+                            {{#unless eventOwner.is}}
+                            <form action="/events/subscribe/{{_id}}" method="POST" style="display: inline">
+                                <input type="submit" value="Suscribe" class="btn btn-sm btn-dark">
+                            </form>
+                            <form action="/events/unsubscribed/{{_id}}" method="POST" style="display: inline">
+                                <input type="submit" value="Unsubscribe" class="btn btn-sm btn-dark">
+                            </form>
+                            {{/unless}}
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
             </div>
         </div>
-        {{/each}}
-    </div>
-
-    {{!-- {{#if userRole.isUser}} --}}
-
-
-    {{!-- {{/if}} --}}
-
-    <div>
-        <a href="/myprofile" class="btn btn-lg btn-secondary">Return</a>
-        <hr>
     </div>
 
 

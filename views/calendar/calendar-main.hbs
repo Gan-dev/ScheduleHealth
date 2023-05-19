@@ -8,10 +8,26 @@
             {{>calendarNav}}
         </div>
         <div class="col-md-11">
-            <div class="calendar">
+            <div class="calendar" style="padding-left: 50px;">
 
                 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
                 <script>
+
+                    /*
+                     eventsClient.push({
+                timeZone: 'local',
+                title: events.name,
+                start: events.date.start,
+                end: events.date.end,
+                descripton: type
+            })
+                    */
+                    const MongoClient = require('mongodb').MongoClient;
+                    const uri
+                    fetch('https://eu-west-2.aws.data.mongodb-api.com/app/data-igxax/endpoint/data/v1/api/list/subscribe')
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch(err => console.log(err))
                     document.addEventListener('DOMContentLoaded', function () {
                         var calendarEl = document.getElementById('calendar');
                         var calendar = new FullCalendar.Calendar(calendarEl, {

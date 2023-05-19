@@ -2,9 +2,8 @@ module.exports = app => {
 
     app.use((req, res, next) => {
         res.locals.currentUser = req.session.currentUser;
-        res.locals.utilsRederize = require('../utils/user-utils')
-        console.log(res.locals.utilsRederize)
-
+        res.locals.isLoggIn = req.session.currentUser ? true : false
+        res.locals.isAdmin = req.session.currentUser?.role == "Admin"
         next();
     });
     const indexRoutes = require("./index.routes");
@@ -19,6 +18,6 @@ module.exports = app => {
     app.use("/", userRoutes)
     const eventsRoutes = require("./events.routes")
     app.use("/events", eventsRoutes)
-    const publicRoutes = require("./public.routes")
-    app.use("/", publicRoutes)
+    const apiRoutes = require('./api.routes')
+    app.use("/api", apiRoutes)
 }

@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs')
 const saltRound = 10
 const User = require('../models/User-model');
 const errorHandling = require('../error-handling');
-const utils = require('../utils/user-utils')
 const uploderAvatarMiddleware = require('../middlewares/uploderAvatar.middleware');
 const { Schema } = require('mongoose');
 
@@ -17,7 +16,6 @@ router.post('/register', uploderAvatarMiddleware.single("avatar"), (req, res, ne
     const { path: avatar } = req.file
     const { email, password, username, birth, zipCode, firstName, lastName, newsPreferences } = req.body
 
-    utils.noAvatar(avatar)
     bcrypt
         .genSalt(saltRound)
         .then(salt => bcrypt.hash(password, salt))
@@ -57,6 +55,7 @@ router.post('/login', (req, res, next) => {
 
 router.post("/logout", (req, res, next) => {
     req.session.destroy(() => res.redirect('/'))
+    res.clearCookie('connect.sid', { path: '/' })
 })
 
 module.exports = router
