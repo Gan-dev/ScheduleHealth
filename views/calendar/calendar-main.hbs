@@ -8,46 +8,47 @@
             {{>calendarNav}}
         </div>
         <div class="col-md-11">
-            <div class="calendar" style="padding-left: 50px;">
+            <div style="padding-left: 50px;">
 
                 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
                 <script>
-
-                    let events = []
-                    /*
-                 
-            })
-                    */
-                    fetch('http://localhost:3000/api/list/subscribe')
+                    let events1 = []
+                    fetch('http://localhost:8080/api/list/subscribe')
                         .then(response => response.json())
                         .then(data => {
-                            data.forEach(elm => {
 
-                                events.push({
-                                    timeZone: 'local',
+                            data.forEach(elm => {
+                                console.log(elm.date.start)
+                                events1.push({
                                     title: elm.name,
-                                    start: elm.date.start,
-                                    end: elm.date.end,
-                                    descripton: elm.type
+                                    start: '2023-05-29',
+                                    end: '2023-05-30',
                                 })
 
                             })
                         })
-                        .then(() => {
-                            console.log("HOLA PAKO", events)
-                            document.addEventListener('DOMContentLoaded', function () {
-                                var calendarEl = document.getElementById('calendar');
-                                var calendar = new FullCalendar.Calendar(calendarEl, {
-                                    initialView: 'dayGridMonth',
-                                    height: 500,
-                                    themeSystem: 'bootstrap5',
-                                    timeZone: 'UTC',
-                                    events: events
-                                });
-                                calendar.render();
-                            });
-                        })
                         .catch(err => console.log(err))
+                    console.log(events1)
+                    let event2 = [{
+                        title: 'hola',
+                        start: '2023-05-29',
+                        end: '2023-05-30',
+                    }]
+
+                    document.addEventListener('DOMContentLoaded', function () {
+                        console.log(events1)
+
+                        console.log("holaaa")
+                        let calendarEl = document.getElementById('calendar');
+                        let calendar = new FullCalendar.Calendar(calendarEl, {
+                            initialView: 'dayGridMonth',
+                            height: 600,
+                            themeSystem: 'bootstrap5',
+                            timeZone: 'UTC',
+                            events: events1
+                        });
+                        calendar.render();
+                    });
 
                 </script>
 

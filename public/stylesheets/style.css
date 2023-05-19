@@ -78,10 +78,10 @@ footer {
   padding: 10px;
   font-size: 1em;
   text-align: center;
-  position: fixed;
+  /*   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%
+  width: 100% */
 }
 
 .profileImage {
@@ -102,8 +102,4 @@ footer {
 
 .profile-nav img {
   width: 10%;
-}
-
-#calendar {
-  padding: 100px;
 }
