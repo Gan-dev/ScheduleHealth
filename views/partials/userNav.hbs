@@ -1,25 +1,25 @@
 <nav class="nav flex-column">
     <a class="nav-link active" aria-current="page" href="/news">News</a>
-    <a class="nav-link" href="/myevents">My events</a>
-    <a class="nav-link" href="/publicevents">Public Events</a>
-    <a class="nav-link" href="/subscribedevents">Suscribed Events</a>
+    <a class="nav-link" href="/events/list/public">Events</a>
     <a class="nav-link" href="/calendar">My Calendar</a>
     {{#if userRole.isUser}}
-    <a class="nav-link" href="/myprofile/edit">Editar mi perfil</a>
+    <a class="nav-link" href="/myprofile/edit">Edit my profile</a>
     {{/if}}
-    {{#if currentUser}}
+    {{#if isLoggIn}}
     <form action="/logout" method="POST">
         <input type="submit" class="nav-link" value="Logout"
             style="background-color: white; border: none; color: rgb(221, 74, 74)">
     </form>
     {{/if}}
-    {{#if userRole.isAdmin}}
+    {{#if isAdmin}}
     <div>
         <hr>
-        <a href="/myprofile/edit" class="nav-link" style="color: gold;">Editar</a>
+
+        <h4>Administrator</h4>
+        <a href="/myprofile/edit" class="nav-link" style="color: gold;">Edit profile</a>
 
         <form action="/myprofile/delete" method="POST" style="display: inline">
-            <input type="submit" value="Eliminar" class="nav-link"
+            <input type="submit" value="Delete profile" class="nav-link"
                 style="background-color: white; border: none; color: rgb(221, 74, 74)"
                 onclick="return confirm('Are you sure you want to delete this profile?')">
         </form>

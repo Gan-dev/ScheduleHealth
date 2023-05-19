@@ -1,157 +1,121 @@
 const router = require("express").Router();
-const { isLoggedIn } = require('../middlewares/route.guards')
 const Event = require("../models/Event-model");
+const { isLoggedIn, isOwner, checkRoles } = require('../middlewares/route.guards')
 const User = require("../models/User-model")
 
-const { renderizeButtom } = require("../utils/user-utils");
+router.get('/menu', isLoggedIn, (req, res, next) => {
+    res.render('events/events-menu')
+});
 
-
-router.get("/create", (req, res, next) => {
+router.get("/create", isLoggedIn, (req, res, next) => {
     res.render('events/event-create')
 })
 
-router.post("/create", (req, res, next) => {
-    const { name, type, description, dateStart, dateEnd, startingHour, endingHour } = req.body
-    const { _id: owner } = req.session.currentUser
-    res.send(owner)
-})
+router.post("/create", isLoggedIn, (req, res, next) => {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* router.get('/myevents', isLoggedIn, (req, res, next) => {
-    const { _id } = req.session.currentUser
-    const userRole = renderizeButtom(req.session.currentUser, _id)
-    Event
-        .find()
-        .then(events => {
-            res.render('events/my-events', { events, userRole })
-        });
-})
-
-router.get('/myevents/create', (req, res, next) => {
-
-    Event
-        .find()
-        .sort({ name: 1 })
-        .then(event => res.render('events/event-create', { event }))
-        .catch(err => console.log(err))
-
-});
-
-router.post('/myevents/create', (req, res, next) => {
     const { name, type, specs, description, dateStart, dateEnd, startingHour, endingHour } = req.body
+    const { _id: owner } = req.session.currentUser
     const date = {
         start: dateStart,
         end: dateEnd,
         hourStart: startingHour,
         hourEnd: endingHour
     }
+
+    Event
+        .create({ name, type, specs, description, date, owner })
+        .then(() => res.redirect('/events/list/public'))
+        .catch(err => next(err))
+})
+
+router.get('/list/public', isLoggedIn, (req, res, next) => {
+    const { _id } = req.session.currentUser
+    Event
+        .find({ specs: "Public", owner: { $ne: _id } })
+        .then(events => res.render('events/events-list', { events, eventOwner: { is: false } }))
+        .catch(err => next(err))
+})
+
+router.get('/list/owner', isLoggedIn, (req, res, next) => {
+    const { _id } = req.session.currentUser
+    Event
+        .find({ owner: _id })
+        .then(events => {
+            res.render('events/events-list', { events, eventOwner: { is: true } })
+        })
+        .catch(err => next(err))
+
+})
+
+router.get('/list/subscribe', isLoggedIn, (req, res, next) => {
+
+    const { _id } = req.session.currentUser
+    Event
+        .find({ userSubscribed: { $in: [_id] } })
+        .then(events => res.render('events/events-list', { events }))
+        .catch(err => next(err))
+})
+
+router.get('/details/:event_id', isLoggedIn, (req, res, next) => {
+    const { event_id } = req.params
+    Event
+        .findById(event_id)
+        .populate('owner')
+        .then(event => res.render('events/event-details', { event }))
+        .catch(err => next(err))
+})
+router.post('/subscribe/:event_id', isLoggedIn, (req, res, next) => {
+
+    const { event_id } = req.params
     const { _id } = req.session.currentUser
 
     Event
-        .create({ name, type, specs, description, date, owner: _id })
-        .then(newEvent => res.redirect(`/myevents`))
-        .catch(err => console.log(err))
-});
+        .findByIdAndUpdate(event_id, { $push: { userSubscribed: _id } })
+        .then(() => res.redirect('/events/list/subscribe'))
+        .catch(err => next(err))
 
-router.get("/myevents/edit/:_id", (req, res, next) => {
-    const { _id } = req.params
-    const renderize = renderizeButtom(req.session.currentUser, _id)
-    Event
-        .findById(_id)
-        .then(event => res.render("events/events-edit", { event, renderize }))
-        .catch(err => console.log(err))
 })
 
-router.post("/myevents/edit/:_id", isLoggedIn, (req, res, next) => {
-    console.log("hola")
-    const { _id } = req.params
-    const { name, type, specs, description, date } = req.body
-
-
+router.post('/unsubscribed/:event_id', isLoggedIn, (req, res, next) => {
+    const { event_id } = req.params
+    const { _id } = req.session.currentUser
     Event
-        .findByIdAndUpdate(_id, { name, type, specs, description, date })
-        .then(() => res.redirect(`/myevents/details/${_id}`))
-        .catch(err => console.log(err))
+        .findByIdAndUpdate(event_id, { $pull: { userSubscribed: _id } })
+        .then(() => res.redirect('/events/list/subscribe'))
+        .catch(err => next(err))
 })
 
-router.get('/myevents/details/:_id', (req, res, next) => {
-
-    const { _id } = req.params
-    const idUser = req.session.currentUser._id
-    const userRole = renderizeButtom(req.session.currentUser, idUser)
+router.get('/edit/:event_id', isLoggedIn, isOwner, (req, res, next) => {
+    const { event_id } = req.params
 
     Event
-        .findById(_id)
-        .then(event => res.render("events/event-details", { event, userRole }))
-        .catch(err => console.log(err))
+        .findById(event_id)
+        .populate('owner')
+        .then(event => res.render('events/events-edit', { event }))
+        .catch(err => next(err))
 })
 
-router.post('/myevents/delete/:_id', isLoggedIn, (req, res, next) => {
-
-    const { _id } = req.params
-
+router.post('/edit/:event_id', isLoggedIn, checkRoles("Admin"), (req, res, next) => {
+    const { name, type, specs, description, dateStart, dateEnd, startingHour, endingHour } = req.body
+    const { event_id } = req.params
+    const date = {
+        start: dateStart,
+        end: dateEnd,
+        hourStart: startingHour,
+        hourEnd: endingHour
+    }
     Event
-        .findByIdAndDelete(_id)
-        .then(() => res.redirect(`/myevents`))
-        .catch(err => console.log(err))
-}) */
+        .findByIdAndUpdate(event_id, { name, type, specs, description, date })
+        .then(() => res.redirect(`/events/details/${event_id}`))
+        .catch(err => next(err))
+})
+
+router.post('/delete/:event_id', isLoggedIn, isOwner, (req, res, next) => {
+    const { event_id } = req.params
+    Event
+        .findByIdAndDelete(event_id)
+        .then(() => res.redirect('/events/list/owner'))
+        .catch(err => next(err))
+})
 
 module.exports = router

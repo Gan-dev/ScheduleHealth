@@ -1,32 +1,55 @@
 <div class="container">
-    <h2>Hola! {{currentUser.username}}</h2>
-    <p>Aqui estan tus eventos :P</p>
+    <h2>Hello {{currentUser.username}}!</h2>
+    <p>Aquí estan tus eventos :P</p>
     <hr>
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
-    <script>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                height: 600,
-                themeSystem: 'bootstrap5',
-                timeZone: 'UTC',
-                events: [
-                    {
-                        id: 'a',
-                        title: 'my event',
-                        start: '2023-05-17'
-                    }
-                ]
-            });
-            calendar.render();
-        });
+    <div class="row">
+        <div class="col-md-1">
+            {{>calendarNav}}
+        </div>
+        <div class="col-md-11">
+            <div class="calendar" style="padding-left: 50px;">
 
-    </script>
+                <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
+                <script>
 
-    <body>
-        <div id='calendar'></div>
-    </body>
+                    /*
+                     eventsClient.push({
+                timeZone: 'local',
+                title: events.name,
+                start: events.date.start,
+                end: events.date.end,
+                descripton: type
+            })
+                    */
+                    const MongoClient = require('mongodb').MongoClient;
+                    const uri
+                    fetch('https://eu-west-2.aws.data.mongodb-api.com/app/data-igxax/endpoint/data/v1/api/list/subscribe')
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch(err => console.log(err))
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var calendarEl = document.getElementById('calendar');
+                        var calendar = new FullCalendar.Calendar(calendarEl, {
+                            initialView: 'dayGridMonth',
+                            height: 500,
+                            themeSystem: 'bootstrap5',
+                            timeZone: 'UTC',
+                            events: [
+                                {
+                                    id: 'a',
+                                    title: 'my event',
+                                    start: '2023-05-17'
+                                }
+                            ]
+                        });
+                        calendar.render();
+                    });
+                </script>
 
-</div>
+                <body>
+                    <div id='calendar'></div>
+                </body>
+            </div>
+        </div>
+    </div>

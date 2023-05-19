@@ -1,50 +1,27 @@
 <div class="container">
 
     <h2>Event Details</h2>
+    <hr>
 
     <div class="row">
-        <p>{{name}}</p>
-
-        <div class=" card col-8" style="color: black;">
-            <h4 class="card-title"><strong>{{ event.name }}</strong></h4>
-
-            <h5 class="card-title"><strong>Date: </strong>{{ event.date }}</h5>
-            <hr>
-            <h5 class="card-title"><strong>Description: </strong>{{ event.description }}</h5>
-            <hr>
-
-        </div>
-        {{#if userRole.isUser}}
-
-        <a href="/myevents/edit/{{event._id}}" class="btn btn-lg btn-info">Edit Event</a>
-        <form action="/myevents/delete/{{event._id}}" method="POST">
-            <input type="submit" value="Delete" class="btn btn-lg btn-dark"
-                onclick="return confirm('Are you sure you want to delete this Event?')">
-        </form>
-
-        {{/if}}
-
-
-        {{#if userRole.isAdmin}}
-        <div>
-            <a href="/myevents/edit/{{event._id}}" class="btn btn-lg btn-danger">Edit Event</a>
-            <form action="/myevents/delete/{{event._id}}" method="POST" style="display: inline">
-                <input type="submit" value="Delete" class="btn btn-lg btn-dark"
-                    onclick="return confirm('Are you sure you want to delete this Event?')">
-            </form>
-
+        <div class="col-md-2">
+            {{>eventDetailsNav}}
         </div>
 
-        {{/if}}
-        <a href="/myevents" class="btn btn-lg btn-success">Return</a>
-        <hr>
+        <div class="col-md-10">
+            <div class="row">
+                <p>{{name}}</p>
 
+                <div class=" card col-md-8" style="color: black;">
+                    <h4 class="card-title"><strong>{{ event.name }}</strong></h4>
 
-
-
+                    <h5 class="card-title"><strong>Date: </strong>{{ event.date.start }}</h5>
+                    <hr>
+                    <h5 class="card-title"><strong>Description: </strong>{{ event.description }}</h5>
+                    <hr>
+                    <a href="/events/edit/{{event._id}}">Editar</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
-
 </div>
