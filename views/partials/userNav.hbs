@@ -2,7 +2,7 @@
     <a class="nav-link active" aria-current="page" href="/news">News</a>
     <a class="nav-link" href="/events/list/public">Events</a>
     <a class="nav-link" href="/calendar">My Calendar</a>
-    {{#if userRole.isUser}}
+    {{#if isLoggIn}}
     <a class="nav-link" href="/myprofile/edit">Edit my profile</a>
     {{/if}}
     {{#if isLoggIn}}
