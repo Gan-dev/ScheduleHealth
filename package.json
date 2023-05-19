@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node -e js,css,hbs server.js",
-    "dev": "nodemon -e js,css,hbs server.js"
+    "start": "nodemon -e css,hbs server.js",
+    "dev": "nodemon -e css,hbs server.js"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -24,6 +24,6 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.22"
   }
 }
