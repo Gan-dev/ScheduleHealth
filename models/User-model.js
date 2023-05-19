@@ -40,7 +40,8 @@ const userSchema = new Schema(
     }],
     avatar: {
       type: String,
-      default: "https://i.stack.imgur.com/l60Hf.png"
+      default: "https://i.stack.imgur.com/l60Hf.png",
+      set: value => value === '' ? 'https://i.stack.imgur.com/l60Hf.png' : value
     },
     subscribedEvents: [{
       type: Schema.Types.ObjectId,

@@ -21,6 +21,11 @@ const eventSchema = new Schema(
             type: String,
             required: true,
         },
+        image: {
+            type: String,
+            default: "https://64.media.tumblr.com/b075a5bffc6021eb75169bb3d850a670/0010e166b3ed3a12-20/s1280x1920/29c5e6fab2d6a5bd80285487384b5f586832d5f6.jpg",
+            set: value => value === '' ? 'https://64.media.tumblr.com/b075a5bffc6021eb75169bb3d850a670/0010e166b3ed3a12-20/s1280x1920/29c5e6fab2d6a5bd80285487384b5f586832d5f6.jpg' : value
+        },
 
         date: {
             start: {

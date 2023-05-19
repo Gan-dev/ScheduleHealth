@@ -2,19 +2,13 @@
     <a class="nav-link active" aria-current="page" href="/news">News</a>
     <a class="nav-link" href="/events/list/public">Events</a>
     <a class="nav-link" href="/calendar">My Calendar</a>
-    {{#if isLoggIn}}
+    {{#if isloggin}}
     <a class="nav-link" href="/myprofile/edit">Edit my profile</a>
     {{/if}}
-    {{#if isLoggIn}}
-    <form action="/logout" method="POST">
-        <input type="submit" class="nav-link" value="Logout"
-            style="background-color: white; border: none; color: rgb(221, 74, 74)">
-    </form>
-    {{/if}}
+
     {{#if isAdmin}}
     <div>
         <hr>
-
         <h4>Administrator</h4>
         <a href="/myprofile/edit" class="nav-link" style="color: gold;">Edit profile</a>
 

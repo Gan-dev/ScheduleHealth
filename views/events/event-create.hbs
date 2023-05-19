@@ -12,14 +12,14 @@
             <h1>Create an Event</h1>
             <hr>
 
-            <form action="/events/create" method="POST">
+            <form action="/events/create" method="POST" enctype="multipart/form-data">
                 <div class="mb-3 row">
 
                     <div class="col-md-6">
                         <label for="eventName" class="form-label">Event Name</label>
                         <input type="text" class="form-control" id="eventName" name="name">
                     </div>
-                    <div class="mb-3 ">
+                    <div class="col-md-6">
                         <label for="eventType" class="form-label">Event Type</label>
                         <select class="form-select" selected name="type">
                             <option value="Leisure">Leisure</option>
@@ -27,7 +27,7 @@
                             <option value="Health">Health</option>
                         </select>
                     </div>
-                    <div class="mb-3 ">
+                    <div class="col-md-6 ">
                         <label for="eventSpecs" class="form-label">Event Specs</label>
                         <select class="form-select" selected name="specs">
                             <option value="Public">Public</option>
@@ -54,11 +54,16 @@
                         <label for="date" class="form-label"> End Hour</label>
                         <input type="time" class="form-control" id="date" name="endingHour">
                     </div>
+                    <div class="col-md-12">
+                        <label for="image" class="form-label">Event Image</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                        <br>
+                    </div>
                     <div class=" d-grid gap-2">
-                        <button type="submit" class="btn btn-danger block">Create Event</button>
+                        <button type="submit" class="btn btn-secondary block">Create Event</button>
                     </div>
                     <div class="d-grid gap-2">
-                        <a href="/myevents/{{id}}" class="btn btn-dark block">Cancel</a>
+                        <a href="/events/list/owner" class="btn btn-dark block">Cancel</a>
                     </div>
                 </div>
             </form>

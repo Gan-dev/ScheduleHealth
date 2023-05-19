@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs')
 const saltRound = 10
 const User = require('../models/User-model');
 const errorHandling = require('../error-handling');
-const utils = require('../utils/user-utils')
 const uploderAvatarMiddleware = require('../middlewares/uploderAvatar.middleware');
 const { Schema } = require('mongoose');
 
