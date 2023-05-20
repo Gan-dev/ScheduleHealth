@@ -12,43 +12,43 @@
 
                 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
                 <script>
-                    let events1 = []
-                    fetch('http://localhost:8080/api/list/subscribe')
-                        .then(response => response.json())
-                        .then(data => {
-
-                            data.forEach(elm => {
-                                console.log(elm.date.start)
-                                events1.push({
-                                    title: elm.name,
-                                    start: '2023-05-29',
-                                    end: '2023-05-30',
-                                })
-
-                            })
-                        })
-                        .catch(err => console.log(err))
-                    console.log(events1)
-                    let event2 = [{
-                        title: 'hola',
-                        start: '2023-05-29',
-                        end: '2023-05-30',
-                    }]
-
                     document.addEventListener('DOMContentLoaded', function () {
-                        console.log(events1)
+                        let event2 = {
+                            title: 'hola',
+                            start: '2023-05-29',
+                            end: '2023-05-30',
+                        }
 
-                        console.log("")
                         let calendarEl = document.getElementById('calendar');
                         let calendar = new FullCalendar.Calendar(calendarEl, {
                             initialView: 'dayGridMonth',
                             height: 600,
                             themeSystem: 'bootstrap5',
                             timeZone: 'UTC',
-                            events: events1
                         });
                         calendar.render();
+
+                        fetch('http://localhost:8080/api/list/subscribe')
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data)
+                                data.forEach(elm => {
+                                    let event1 = {
+                                        title: elm.name,
+                                        start: elm.date.start,
+                                        end: elm.date.end,
+                                        description: elm.description
+                                    }
+                                    calendar.addEvent(event1)
+
+                                })
+                            })
+                            .catch(err => console.log(err))
                     });
+
+
+
+
 
                 </script>
 

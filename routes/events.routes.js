@@ -34,6 +34,7 @@ router.get('/list/public', isLoggedIn, (req, res, next) => {
     const { _id } = req.session.currentUser
     Event
         .find({ specs: "Public", owner: { $ne: _id } })
+        .populate('owner')
         .then(events => res.render('events/events-list', { events, eventOwner: { is: false } }))
         .catch(err => next(err))
 })
@@ -42,7 +43,9 @@ router.get('/list/owner', isLoggedIn, (req, res, next) => {
     const { _id } = req.session.currentUser
     Event
         .find({ owner: _id })
+        .populate('owner')
         .then(events => {
+            console.log(events)
             res.render('events/events-list', { events, eventOwner: { is: true } })
         })
         .catch(err => next(err))
@@ -54,6 +57,7 @@ router.get('/list/subscribe', isLoggedIn, (req, res, next) => {
     const { _id } = req.session.currentUser
     Event
         .find({ userSubscribed: { $in: [_id] } })
+        .populate('owner')
         .then(events => res.render('events/events-list', { events }))
         .catch(err => next(err))
 })
